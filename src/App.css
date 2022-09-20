@@ -1,38 +1,534 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a.active {
+  background: #444;
+  color: white;
+}
+
+h2 {
+  margin: 0;
+  color: #333;
+}
+
+h4 {
+  padding: 0 2em;
+}
+
+li {
+  list-style: none;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* --------- VIDEO BG --------- */
+
+.bgVideo {
+  width: 100%;
+  height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* --------- FRONT PAGE --------- */
+
+.home-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.logoText {
+  width: 55%;
+}
+
+.title {
+  font-size: 9em;
+  font-weight: 700;
+  text-align: center;
+  line-height: 0.9em;
+  padding-top: 0.8em;
+  padding-bottom: 0.5em;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* --------- SEARCH --------- */
+
+.search {
+  display: flex;
+  border: 4px #333 solid;
+  border-radius: 60px;
+  outline: none;
+  padding: 0.3em 1em 0.3em 1.5em;
+  font-size: 20px;
+  color: black;
+  width: 50%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  backdrop-filter: blur(2px);
+  background: rgba(255, 255, 255, 0.45);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search input {
+  background: transparent;
+  border: 0;
+  font-size: 1.1em;
+  color: black;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.search input:focus {
+  outline: none;
+}
+
+::placeholder {
+  color: #333;
+}
+
+.submit_button img {
+  height: 2em;
+  width: 2em;
+}
+
+.submit_button2 {
+  height: 4em;
+  width: 4em;
+  border-radius: 2em;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.submit_button2 img {
+  width: 2.5em;
+}
+
+.randomRecipe {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.subscriptions {
+  margin-bottom: 2em;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%);
+}
+
+/* .modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  padding: 3em 2em;
+  max-width: 500px;
+  margin: 200px auto;
+  background: white;
+  border-radius: 10px;
+  text-align: center;
+} */
+
+/* --------- FORM --------- */
+
+.submit-form button {
+  margin: 2em;
+}
+
+.submit-form label,
+.submit-form input {
+  display: inline-flex;
+  text-align: left;
+  margin: 0.2em;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 1em;
+  border-radius: 2em;
+  justify-content: space-between;
+}
+
+/* --------- NAV --------- */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 1em;
+  align-items: center;
+}
+
+.logoText-small {
+  width: 55%;
+  color: #333;
+}
+
+/* --------- GRID --------- */
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 auto;
+  width: 90%;
+  overflow: hidden;
+}
+
+.recipe-grid {
+  width: 25%;
+  display: flex;
+}
+
+/* --------- PAGE NUMBERS --------- */
+
+.page-numbers {
+  display: flex;
+  justify-content: center;
+  outline: none;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.page-numbers button {
+  padding: 0.8em 2em;
+  margin: 0.8em 0.5em 0px;
+  color: white;
+  background: #333;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  border-radius: 0.4em;
+  font-size: 14px;
+}
+
+.page-numbers button.active {
+  background-color: #444;
+}
+
+/* --------- CARD --------- */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 0.8em;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 0.4em;
+  background-color: white;
+  position: relative;
+}
+
+.card a:visited {
+  text-decoration: none;
+}
+
+.card p {
+  position: absolute;
+  padding: 0 1em 1.5em;
+  left: 50%;
+  bottom: 0%;
+  transform: translate(-50%, 0%);
+  color: white;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  line-height: 1.1em;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  height: 100%;
+  margin: 0;
+}
+
+.card img {
+  display: flex;
+  width: 100%;
+}
+
+/* --------- RECIPE --------- */
+
+.recipe {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 4em;
+}
+
+.recipe h1 {
+  font-size: 3em;
+  font-weight: 900;
+  width: 100%;
+  margin-top: 0.6em;
+  display: flex;
+  line-height: 1em;
+  padding-bottom: 0.06em;
+}
+
+.recipe img {
+  width: 110%;
+  overflow: hidden;
+  flex: none;
+  align-self: center;
+}
+
+.recipe-right {
+  margin-left: 4em;
+}
+
+.recipe-right h2 {
+  letter-spacing: 0.05em;
+}
+
+.recipe-about {
+  display: flex;
+  letter-spacing: 0.05em;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+
+.recipe-left {
+  width: 55%;
+  display: flex;
+  overflow: hidden;
+  flex: none;
+  flex-direction: column;
+}
+
+.buttons {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* --------- RECIPE DETAILS --------- */
+/* --- SUMMARY, INSTRUCTIONS, INGREDIENTS --- */
+
+p.recipe-summary {
+  line-height: 1.3em;
+  text-underline-position: under;
+  margin-top: 2em;
+  overflow: scroll;
+  height: 20em;
+  background-color: rgb(206, 206, 206);
+  padding: 1em;
+}
+
+p.recipe-instructions {
+  line-height: 1.3em;
+  overflow: scroll;
+  height: 14em;
+  background-color: rgb(206, 206, 206);
+  padding: 1em;
+}
+
+.recipe-ingredients2 {
+  overflow: scroll;
+  height: 14em;
+  background-color: rgb(206, 206, 206);
+  padding: 1em;
+}
+
+li.recipe-ingredients {
+  line-height: 1.3em;
+}
+
+/* --------- CATEGORIES --------- */
+
+.category {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1em;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h2.category {
+  display: flex;
+}
+
+.categories {
+  display: flex;
+}
+
+/* --------- SUBSCRIBE --------- */
+
+button.randomRecipe,
+button.subscriptions {
+  padding: 1em 2em;
+  border-radius: 50px;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  color: white;
+  background: #333;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.subscribe {
+  background-color: #333;
+  width: 100%;
+  height: 4.5em;
+  position: fixed;
+  bottom: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.subscribe form {
+  display: flex;
+  color: white;
+  align-items: center;
+}
+
+.subscribe p {
+  display: flex;
+  color: white;
+  align-items: center;
+  margin-right: 1em;
+}
+
+.subscribe input {
+  padding: 1em 7em 1em 1em;
+  margin: 0 0.5em;
+  border-radius: 0.2em;
+  border: 0;
+}
+
+.subscribe-submit {
+  padding: 1em 2em;
+  margin: 0 0 0 0.5em;
+  background: #333;
+  letter-spacing: 0.08em;
+  box-shadow: 0px 0px 0px 2px white inset;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  border-radius: 0.2em;
+}
+
+.subscribe-submit:hover {
+  background: #444;
+}
+
+.subscribe-exit {
+  background: transparent;
+  color: white;
+  transform: scale(2);
+  display: flex;
+  align-self: center;
+  right: 0;
+  position: absolute;
+  margin-right: 2em;
+  border: 0;
+  cursor: pointer;
+}
+
+/* --------- ACCORDION --------- */
+
+.accordion-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  border: none;
+  outline: none;
+  transition: background-color 0.6s ease;
+  justify-content: space-between;
+}
+
+.accordion:hover,
+.active {
+  background-color: #ccc;
+}
+
+.accordion-title {
+  font-weight: 600;
+  font-size: 14px;
+  text-align: left;
+}
+
+.accordion-icon {
+  margin-left: auto;
+  transition: transform 0.6s ease;
+}
+
+.accordion-content {
+  background-color: white;
+  overflow: auto;
+  transition: max-height 0.6s ease;
+}
+
+.accordion-text {
+  font-weight: 400;
+  font-size: 14px;
+  padding: 18px;
+}
+
+.accordion-content ol > li {
+  color: #333;
+  list-style: auto;
+  line-height: 1.6em;
+  margin-left: 1em;
+  padding-left: 0.2em;
+}
+
+.accordion-content li {
+  color: #333;
+  list-style: none;
+  line-height: 1.6em;
 }

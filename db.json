@@ -1,0 +1,44 @@
+{
+  "subscribers": [
+    {
+      "id": 1,
+      "subName": "John",
+      "subEmail": "testemail@gmail.com"
+    },
+    {
+      "name": "sdfsd",
+      "email": "adfs@sdf",
+      "id": 2
+    },
+    {
+      "name": "Loren",
+      "email": "email@test.com",
+      "id": 3
+    },
+    {
+      "name": "Dumpling",
+      "email": "Dumpling@gmail.com",
+      "id": 4
+    },
+    {
+      "name": "testemail",
+      "email": "anothertest@test.com",
+      "id": 5
+    },
+    {
+      "name": "John Smith",
+      "email": "johnsmith@yahoo.com",
+      "id": 6
+    },
+    {
+      "name": "Tom",
+      "email": "tom@aol.com",
+      "id": 7
+    },
+    {
+      "name": "Bobby",
+      "email": "bobby@gmail.com",
+      "id": 8
+    }
+  ]
+}
